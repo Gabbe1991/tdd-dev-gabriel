@@ -10,39 +10,37 @@ describe('User', () => {
     user = new User('testuser', 'testpassword');
   });
 
-  test('constructor should set the username and password fields', () => {
-    expect(user.username).toBe('testuser');
-    expect(user.password).toBe('testpassword');
+  test('constructor sets the username and password fields', () => {
+    expect(user).toMatchObject({ username: 'testuser', password: 'testpassword' });
   });
 
-  test('equals method should return true if the usernames are the same', () => {
-    const otherUser = new User('testuser', 'otherpassword');
-    expect(user.equals(otherUser)).toBe(true);
+  test('equals method returns true if the usernames are the same', () => {
+    expect(user.equals(new User('testuser', 'otherpassword'))).toBe(true);
   });
 
-  test('equals method should return false if the usernames are different', () => {
-    const otherUser = new User('otheruser', 'otherpassword');
-    expect(user.equals(otherUser)).toBe(false);
+  test('equals method returns false if the usernames are different', () => {
+    expect(user.equals(new User('otheruser', 'otherpassword'))).toBe(false);
   });
 
-  test('get username method should return the username field', () => {
-    expect(user.username).toBe('testuser');
+  test('getUsername method returns the username field', () => {
+    expect(user.getUsername()).toBe('testuser');
   });
 
-  test('set username method should set the username field', () => {
-    user.username = 'newuser';
-    expect(user.username).toBe('newuser');
+  test('setUsername method sets the username field', () => {
+    user.setUsername('newuser');
+    expect(user.getUsername()).toBe('newuser');
   });
 
-  test('get password method should return the password field', () => {
-    expect(user.password).toBe('testpassword');
+  test('getPassword method returns the password field', () => {
+    expect(user.getPassword()).toBe('testpassword');
   });
 
-  test('set password method should set the password field', () => {
-    user.password = 'newpassword';
-    expect(user.password).toBe('newpassword');
+  test('setPassword method sets the password field', () => {
+    user.setPassword('newpassword');
+    expect(user.getPassword()).toBe('newpassword');
   });
 });
+
 
 
 

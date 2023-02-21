@@ -1,27 +1,27 @@
 class User {
   constructor(username, password) {
-    this._username = username;
-    this._password = password;
+    this.username = username;
+    this.password = password;
   }
 
   equals(otherUser) {
     return this.username === otherUser.username;
   }
 
-  get username() {
-    return this._username;
+  getUsername() {
+    return this.username;
   }
 
-  set username(value) {
-    this._username = value;
+  setUsername(value) {
+    this.username = value;
   }
 
-  get password() {
-    return this._password;
+  getPassword() {
+    return this.password;
   }
 
-  set password(value) {
-    this._password = value;
+  setPassword(value) {
+    this.password = value;
   }
 }
 
