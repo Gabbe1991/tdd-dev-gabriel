@@ -4,16 +4,9 @@ class Authentication {
     }
 
     login(username, password) {
+        const userInDatabase = this.database.find(user => user.username === username);
 
-        let userInDatabase;
-
-        for (let user of this.database) {
-            if (user.username === username) {
-                userInDatabase = user
-            }
-        }
-
-        if (userInDatabase == undefined) {
+        if (!userInDatabase) {
             throw new Error('User does not exist');
         }
 

@@ -4,24 +4,26 @@ class User {
     this.password = password;
   }
 
-  equals(otherUser) {
-    return this.username === otherUser.username;
-  }
+  
 
   getUsername() {
     return this.username;
   }
 
-  setUsername(value) {
-    this.username = value;
+  setUsername(username) {
+    this.username = username;
   }
 
   getPassword() {
     return this.password;
   }
 
-  setPassword(value) {
-    this.password = value;
+  setPassword(password) {
+    this.password = password;
+  }
+  
+  equals(otherUser) {
+    return this.username === otherUser.username;
   }
 }
 
