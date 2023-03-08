@@ -15,17 +15,17 @@ describe('Authentication', () => {
 
     test('login should return true for valid username-password pair', () => {
         let authentication = new Authentication(database);
-        expect(authentication.login('Carl', 'carl123').toBe(true));
+        expect(authentication.login('Carl', 'carl123')).toBe(true);
     });
 
     test('login should throw error for invalid username', () => {
         let authentication = new Authentication(database);
-        expect(authentication.login('NotAUser', 'password').toThrow('User does not exist'));
+        expect(() => authentication.login('NotAUser', 'password')).toThrow('User does not exist');
+
     });
 
     test('login should throw error for invalid password', () => {
         let authentication = new Authentication(database);
-        expect(authentication.login('Carl', 'IncorrectPassword').toThrow('Invalid password'));
+        expect(() => authentication.login('Carl', 'IncorrectPassword')).toThrow('Invalid password');
     });
 });
-
